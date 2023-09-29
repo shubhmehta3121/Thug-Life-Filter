@@ -58,24 +58,10 @@ while True:
     if all_landmarks: #1
         faces=[]
         for face_landmarks in all_landmarks:#2
-            face = []
-            eye_positions = [156,383]
-            mouth_position = [14]
-            neck = [93,323]
-            head = [21,251]
-            face_border_v=[10,152]
-            face_border_h =[234,454]
-            faceoutline=[10,  338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288,
-    397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136,
-    172, 58,  132, 93,  234, 127, 162, 21,  54,  103, 67,  109
-  ]
-
             for id,individual_landmark in enumerate(face_landmarks.landmark):
                 frame_height,frame_width,frame_channel = frame.shape
                 x=int(individual_landmark.x*frame_width)
                 y=int(individual_landmark.y*frame_height)
-                # if id in faceoutline:
-                #      cv2.putText(frame,str(id),(x,y),cv2.FONT_HERSHEY_PLAIN,1,(0,0,255),1)
                 face.append([x,y])#3
             faces.append(face)#4
         for individual_face in faces:
