@@ -58,6 +58,7 @@ while True:
     if all_landmarks: #1
         faces=[]
         for face_landmarks in all_landmarks:#2
+            face = []
             for id,individual_landmark in enumerate(face_landmarks.landmark):
                 frame_height,frame_width,frame_channel = frame.shape
                 x=int(individual_landmark.x*frame_width)
